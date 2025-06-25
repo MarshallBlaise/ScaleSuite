@@ -1,0 +1,1019 @@
+<!-- Start your new canvas here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Canvas</title>
+</head>
+<body>
+  <!-- Your code here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S(c)ale Suite – The Growth Engine for Creators</title>
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <!-- Theme Color for Mobile -->
+  <meta name="theme-color" content="#7B3FE4">
+  <!-- Open Graph Preview -->
+  <meta property="og:title" content="S(c)ale Suite – The Growth Engine for Creators" />
+  <meta property="og:description" content="Blazingly fast. Delightfully simple. Turn your audience into superfans and unlock new revenue with zero extra work." />
+  <meta property="og:image" content="/social-preview.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="S(c)ale Suite – The Growth Engine for Creators" />
+  <meta name="twitter:description" content="Blazingly fast. Delightfully simple. Turn your audience into superfans and unlock new revenue with zero extra work." />
+  <meta name="twitter:image" content="/social-preview.png" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    /* Root Variables */
+    :root {
+      --bg: #111827;
+      --surface: #1E293B;
+      --elevated: #273449;
+      --primary-from: #7B3FE4;
+      --primary-to: #38BDF8;
+      --secondary-from: #F97316;
+      --secondary-to: #FACC15;
+      --gradient-start: #34D399;
+      --gradient-end: #3B82F6;
+      --text-light: #F9FAFB;
+      --text-mid: #D1D5DB;
+      --text-muted: #9CA3AF;
+      --radius: 12px;
+      --card-bg: #FFFFFF;
+      --card-text: #111827;
+    
+      --link-mint: #3EB489; /* Mint green for personal links */
+    }
+    /* Global Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    nav {
+      background: var(--surface);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: var(--text-mid);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: var(--gradient-end);
+    }
+    /* Mint green links in About section */
+    .about a {
+      color: var(--link-mint);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .about a:hover {
+      color: var(--primary-to);
+      text-decoration: underline;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1, h2, h3 {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    .hero {
+      text-align: center;
+    }
+    /* Hero image styling */
+    .hero img {
+      max-width: 500px;
+      width: 100%;
+      margin: 1rem auto;
+      display: block;
+    }
+    .features, .cases, .vrp, .about {
+      background: linear-gradient(to bottom, #0F172A, #1E293B, #27344D);
+      border-radius: var(--radius);
+      margin-top: 2rem;
+      padding: 2rem;
+    }
+    /* What We Do Section */
+    .what-do {
+      text-align: center;
+      color: var(--text-light);
+    }
+    .what-do h2 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .what-do p {
+      color: var(--text-mid);
+      margin-bottom: 2rem;
+    }
+    .we-do-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .we-do-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 2rem;
+      flex: 1 1 300px;
+      position: relative;
+    }
+    .we-do-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
+      border-top-left-radius: var(--radius);
+      border-bottom-left-radius: var(--radius);
+    }
+    .we-do-card:nth-child(2)::before {
+      background: var(--accent-hover);
+    }
+    .we-do-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .we-do-card h3 img {
+      width: 24px;
+      height: 24px;
+    }
+    .we-do-card p {
+      color: var(--text-light);
+    }
+    /* Flip-card styles */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .flip-card {
+      background: transparent;
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius);
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .flip-card-front {
+      transform: rotateY(0deg);
+      background: var(--elevated);
+      color: var(--text-light);
+      border-top: 3px solid;
+      border-image-source: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      border-image-slice: 1;
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
+      background: var(--elevated);
+      color: var(--text-light);
+      font-size: 0.9rem;
+      border-top: 3px solid;
+      border-image-source: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      border-image-slice: 1;
+    }
+    .flip-card-back {
+      background: var(--surface);
+      transform: rotateY(180deg);
+      font-size: 0.9rem;
+    }
+    .flip-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      position: relative;
+      font-weight: 600;
+    }
+    .tooltip {
+      position: absolute;
+      bottom: 105%;
+      background: #000;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .flip-content:hover .tooltip {
+      opacity: 1;
+    }
+    .tag {
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+    /* CTA Styles */
+    .cta h2 {
+      color: var(--primary-from);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .cta p {
+      color: var(--text-light);
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+    .cta button {
+      background: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      color: var(--bg);
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cta button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    }
+    /* Contact Schedule button styling */
+    .contact-options button {
+      background: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      color: var(--bg);
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contact-options button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    }
+    /* Footer link color */
+    footer a {
+      color: var(--link-mint);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  .tier-label {
+      margin-top: 2rem;
+      font-size: 1.25rem;
+      text-align: left;
+      background: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+  /* Feature Cards */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      color: var(--card-text);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: left;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .feature-card img {
+      display: block;
+      margin: 0 auto 1rem;
+      width: 40px;
+      height: 40px;
+      filter: brightness(0) saturate(100%);
+    }
+    .feature-card h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .feature-card:nth-child(3) h3 {
+      background: linear-gradient(to right, var(--secondary-from), var(--secondary-to));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .feature-card p {
+      color: var(--text-mid);
+      font-size: 0.95rem;
+    }
+  /* What We Do enhancements */
+    #what-do { position: relative; }
+    /* Plan 1: Radial glow behind How It Works */
+    #features {
+      position: relative;
+      overflow: visible;
+    }
+    #features::before {
+      content: '';
+      position: absolute;
+      top: -48px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(123,63,228,0.25) 0%, transparent 70%);
+      z-index: -1;
+    }
+    /* Accent bar animation under H2 */
+    h2 {
+      position: relative;
+      font-weight: 600;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      height: 4px;
+      width: 0;
+      background: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      transition: width 0.6s ease;
+    }
+    h2.in-view::after {
+      width: 100%;
+    }
+        /* Angled divider between How It Works and What We Do */
+    .features + .what-do::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 110%;
+      height: 40px;
+      background: #152033;
+      transform: translateX(-5%) skewY(4deg);
+      transform-origin: top left;
+      z-index: -1;
+    }
+    /* Card bloom on hover */
+    .feature-card:hover::before {
+      filter: blur(8px) saturate(120%);
+    }
+    /* Scroll reveal helpers */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .in-view { opacity: 1; transform: none; }
+
+    #what-do h2::after {
+      content: '';
+      display: block;
+      height: 4px;
+      width: 60px;
+      margin: 0.5rem auto 1.5rem;
+      background: linear-gradient(90deg, var(--primary-from), transparent);
+    }
+    .we-do-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1.5rem;
+      perspective: 1000px;
+    }
+    @media (min-width: 768px) {
+      .we-do-grid {
+        flex-wrap: wrap;
+        overflow-x: visible;
+        scroll-snap-type: none;
+      }
+    }
+    .we-do-card {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      transition: transform 0.3s ease;
+    }
+    /* Tinted backdrops */
+    .we-do-card[data-service="clips"]::before,
+    .we-do-card[data-service="rewards"]::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      z-index: -1;
+    }
+    .we-do-card[data-service="clips"]::before { background: rgba(123,63,228,0.1); }
+    .we-do-card[data-service="rewards"]::before { background: rgba(249,115,22,0.1); }
+    /* Gradient icon masks */
+    .we-do-card[data-service="clips"] h3 img {
+      background: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      -webkit-mask: url('https://img.icons8.com/ios-glyphs/30/000000/clapperboard.png') no-repeat center;
+      mask: url('https://img.icons8.com/ios-glyphs/30/000000/clapperboard.png') no-repeat center;
+      mask-size: 24px 24px;
+    }
+    .we-do-card[data-service="rewards"] h3 img {
+      background: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      -webkit-mask: url('https://img.icons8.com/ios-glyphs/30/000000/gift.png') no-repeat center;
+      mask: url('https://img.icons8.com/ios-glyphs/30/000000/gift.png') no-repeat center;
+      mask-size: 24px 24px;
+    }
+    /* Badges */
+    .badge {
+      display: inline-block;
+      margin-top: 1rem;
+      background: linear-gradient(to right, var(--secondary-from), var(--secondary-to));
+      color: var(--bg);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    /* Tilt effect */
+    .we-do-card:hover {
+      transform: rotateY(6deg) translateY(-3px);
+    }
+    /* CTA chip */
+    #what-do .chip {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    /* Contact Form Styles */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 600px;
+      margin: 1.5rem auto 0;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+    }
+    .contact-form textarea {
+      resize: vertical;
+    }
+    .contact-form button {
+      align-self: flex-start;
+      background: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      color: var(--bg);
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      font-size: 1rem;
+    }
+    .contact-form button:hover {
+      transform: scale(1.05);
+    }
+  /* Filter Controls Styles */
+    .filters {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+    .filter-btn {
+      background: var(--elevated);
+      color: var(--text-light);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      border-top: 3px solid;
+      border-image-source: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      border-image-slice: 1;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .filter-btn.active {
+      background: var(--surface);
+    }
+    .filter-btn:hover {
+      transform: translateY(-2px);
+    }
+  /* Trust Trio & FAQ Styles */
+    .trust-block {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .trust-block .badge {
+      background: var(--elevated);
+      color: var(--text-light);
+      border-top: 4px solid;
+      border-image-source: linear-gradient(to right, var(--primary-from), var(--primary-to));
+      border-image-slice: 1;
+      padding: 1rem;
+      border-radius: var(--radius);
+      text-align: center;
+      min-width: 120px;
+    }
+    .trust-block .badge span {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .trust-block .badge p {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-mid);
+    }
+    .faq-block {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .faq-block h2 {
+      margin-bottom: 1rem;
+    }
+    .faq-block dl dt {
+      font-weight: 600;
+      margin-top: 1rem;
+      color: var(--text-light);
+    }
+    .faq-block dl dd {
+      margin-left: 1rem;
+      color: var(--text-mid);
+      margin-bottom: 0.5rem;
+    }
+    /* Highlighted Insider Banner */
+    .insider-banner {
+      background: linear-gradient(to right, var(--secondary-from), var(--secondary-to));
+      color: var(--bg);
+      text-align: center;
+      padding: 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .insider-banner .counter {
+      display: inline-block;
+      background: var(--bg);
+      color: var(--primary-from);
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius);
+      margin-left: 0.5rem;
+      font-weight: 700;
+    }
+    .insider-banner .counter span {
+      font-size: 1rem;
+    }
+    /* Golden Bibble Banner */
+    .banner {
+      background: linear-gradient(135deg, var(--secondary-to), var(--secondary-from));
+      border-radius: var(--radius);
+      padding: 4rem 2rem;
+      color: var(--bg);
+    }
+    .banner p, .banner ul, .banner li {
+      color: var(--bg);
+    }
+    /* Override VRP Card Colors */
+    .vrp-card {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    .vrp-card ul li {
+      color: var(--text-mid) !important;
+    }
+    .vrp-card ul li {
+      color: var(--text-mid) !important;
+    }
+    /* VRP Banner Text Black Override */
+    #vrp.banner h2,
+    #vrp.banner .vrp-card h3,
+    #vrp.banner .vrp-card ul li {
+      color: var(--bg) !important;
+    }
+</style>
+</head>
+<body>
+  <!-- Insider Invite Banner -->
+  <div class="insider-banner">
+    Beta slots left … <span id="beta-count">4</span> / <span id="beta-total">11</span>
+  </div>
+  <nav>
+    <div><strong>S(c)ale Suite</strong></div>
+    <div>
+      <a href="#hero">Home</a>
+      <a href="#features">Features</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#vrp">VRP</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section id="hero" class="hero">
+    <h1>S(c)ale Suite is the rewards platform you’ll enjoy using</h1>
+    <p id="subhead"></p>
+    <!-- Award ceremony image -->
+    <img src="images/award_ceremony.jpg.jpg" alt="Founder speaking at award ceremony" />
+  </section>
+  <section id="features" class="features">
+    <h2>How It Works</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <img src="https://img.icons8.com/ios-glyphs/48/000000/link--v1.png" alt="Connect Icon" />
+        <h3>1. Connect Instantly</h3>
+        <p>Link your channels and import content in seconds.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://img.icons8.com/ios-glyphs/48/000000/automated-analytics.png" alt="Curated Clips Icon" />
+        <h3>2. Curated Clips</h3>
+        <p>My team selects top moments and publishes viral snippets.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://img.icons8.com/ios-glyphs/48/000000/reward.png" alt="Reward Icon" />
+        <h3>3. Reward & Grow</h3>
+        <p>Viewers earn points; you earn revenue hands‑off.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://img.icons8.com/ios-glyphs/48/000000/combo-chart.png" alt="Analytics Icon" />
+        <h3>4. Real‑Time Analytics</h3>
+        <p>Monitor engagement, conversions, and payouts live.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="what-do" class="what-do">
+    <h2>What We Do</h2>
+    <p>S(c)ale Suite helps creators and agencies grow through two core offerings:</p>
+    <div class="we-do-grid">
+      <div class="we-do-card">
+        <h3><img src="https://img.icons8.com/ios-glyphs/30/ffffff/clapperboard.png" alt="Clip">Clip Repurposing</h3>
+        <p>We transform long-form videos into viral Shorts across YouTube, TikTok, and Reels—no new filming required.</p>
+      </div>
+      <div class="we-do-card">
+        <h3><img src="https://img.icons8.com/ios-glyphs/30/ffffff/gift.png" alt="Rewards">Viewer Rewards</h3>
+        <p>Your audience earns when they share your clips—tracked, rewarded, and paid natively through our VRP system.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Trio Block -->
+  <section class="trust-block">
+    <div class="badge"><span>0 $</span><p>Risk-Free Pilot</p></div>
+    <div class="badge"><span>72 h</span><p>Delivery SLA</p></div>
+    <div class="badge"><span>↗ 40 %</span><p>View-lift Target</p></div>
+  </section> <!-- end Trust Trio -->
+  <!-- FAQ Call-Outs -->
+  <section class="faq-block banner">
+    <h2>Frequently Asked Questions</h2>
+    <details class="faq-details">
+      <summary>Show FAQs</summary>
+      <dl>
+      <dt>What if the clips tank?</dt>
+      <dd>You pay nothing. Escrow auto-refunds.</dd>
+      <dt>What if you miss the 72-hour window?</dt>
+      <dd>We produce two additional clips free—documented in the contract.</dd>
+      <dt>What does “risk-free pilot” actually mean?</dt>
+      <dd>We edit three Shorts from your footage. If any clip fails to beat your 30-day average by ≥40%, escrowed funds auto-refund. If we miss our 72-hour delivery window, your next two clips are free—written in the contract.</dd>
+      <dt>Why doesn’t my long-form content perform as well anymore?</dt>
+      <dd>Algorithms now surface 15–60 s clips first. Viewers decide in 3 seconds whether to stick around. We isolate those “hook moments” inside your existing videos and push them where the algorithm wants—so your long-form gets rediscovered instead of ignored.</dd>
+      <dt>I already have an editor—why bring in your team?</dt>
+      <dd>Solo editors cut clips; we run a three-layer system: hook analysis, format templates, and A/B metadata testing. You keep your editor for long-form polish while we drive Shorts performance.</dd>
+      <dt>Will this add work to my plate?</dt>
+      <dd>No logins, no manual exports. You drop raw footage in Drive; within 72 h you get finished clips + metadata. Post them or let us post— your workflow shrinks, not expands.</dd>
+      </dl>
+    </details>
+  </section>
+  <section id="cases" class="cases">
+  <h2>Case Studies</h2>
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="growth">Growth</button>
+    <button class="filter-btn" data-filter="tech">Tech</button>
+    <button class="filter-btn" data-filter="finance">Finance</button>
+    <button class="filter-btn" data-filter="diy">DIY</button>
+  </div>
+  <div class="case-grid">
+    <!-- Thomas Sanders -->
+    <div class="flip-card" data-category="growth">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p><strong>Timeline:</strong> Oct 2018 → Jul 2023</p>
+          <p><strong>Action:</strong> Launched “Thomas Sanders & Friends” Shorts channel.</p>
+          <p><strong>Results:</strong> Views 12M → 25M; 2.3M views in 48 hrs (+55K subs)</p>
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Before:</strong> 700K subs from long-form sketches.</p>
+          <p><strong>Proof:</strong> YouTube Analytics, SocialBlade</p>
+        </div>
+      </div>
+    </div>
+    <!-- Marques Brownlee -->
+    <div class="flip-card" data-category="tech">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p><strong>Timeline:</strong> Mar 2021 → Jun 2025</p>
+          <p><strong>Action:</strong> Launched MKBHD Shorts with bite-sized reviews.</p>
+          <p><strong>Results:</strong> 4.8M views/24 hrs; 639K subs</p>
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Before:</strong> 10M subs; no Shorts presence.</p>
+          <p><strong>Proof:</strong> YouTube Analytics, Wikipedia</p>
+        </div>
+      </div>
+    </div>
+    <!-- Kate Makes Cents -->
+    <div class="flip-card" data-category="finance">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p><strong>Timeline:</strong> Feb 2024 → Apr 2024</p>
+          <p><strong>Action:</strong> Posted 3 repurposed Shorts/week with clear hooks.</p>
+          <p><strong>Results:</strong> +18% income; 450+ email opt-ins</p>
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Before:</strong> 76K subs; $2.3K/mo affiliate revenue.</p>
+          <p><strong>Proof:</strong> ConvertKit Dashboard, SocialBlade</p>
+        </div>
+      </div>
+    </div>
+    <!-- DIY Maker -->
+    <div class="flip-card" data-category="diy">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p><strong>Timeline:</strong> Jun 2024 → Aug 2024</p>
+          <p><strong>Action:</strong> 20s timelapse DIY Shorts.</p>
+          <p><strong>Results:</strong> Best Short 1.8K views; +1.5K subs</p>
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Before:</strong> 3K subs; ~200 views/video.</p>
+          <p><strong>Proof:</strong> Creator Dashboard</p>
+        </div>
+      </div>
+    </div>
+    <!-- Finance Creator B -->
+    <div class="flip-card" data-category="finance">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p><strong>Timeline:</strong> Jan → Apr 2024</p>
+          <p><strong>Action:</strong> Posted 12 Shorts in 2 weeks with on-screen arrows.</p>
+          <p><strong>Results:</strong> +6K subs (+12.5%); CTR tripled; 70K-view Short</p>
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Before:</strong> 48K subs</p>
+          <p><strong>Proof:</strong> Channel Analytics, TubeBuddy</p>
+        </div>
+      </div>
+    </div>
+    <!-- Lifestyle TikToker A -->
+    <div class="flip-card" data-category="growth">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p><strong>Timeline:</strong> Apr → May 2024</p>
+          <p><strong>Action:</strong> Daily money-tip clips with caption bubbles.</p>
+          <p><strong>Results:</strong> +6K followers (+19%); top clip 90K views & 1.2K clicks</p>
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Before:</strong> 32K followers</p>
+          <p><strong>Proof:</strong> TikTok Analytics</p>
+        </div>
+      </div>
+    </div>
+    <!-- Education Channel A -->
+    <div class="flip-card" data-category="tech">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p><strong>Timeline:</strong> Mar → Jul 2024</p>
+          <p><strong>Action:</strong> 45s quick-tip Shorts from tutorials.</p>
+          <p><strong>Results:</strong> Avg views 3.8K; session time +18%; clip 5K views, +200 subs</p>
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Before:</strong> 20K subs; avg 1K views/video</p>
+          <p><strong>Proof:</strong> YouTube Analytics</p>
+        </div>
+      </div>
+    </div>
+    <!-- Kids Cooking -->
+    <div class="flip-card" data-category="diy">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p><strong>Timeline:</strong> Jan → Apr 2024</p>
+          <p><strong>Action:</strong> Posted 30s step-by-step recipe clips.</p>
+          <p><strong>Results:</strong> +1K subs; top clip 1K views & 40 new subs</p>
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Before:</strong> 2K subs; avg 100 views/video</p>
+          <p><strong>Proof:</strong> YouTube Studio Analytics</p>
+        </div>
+      </div>
+    </div>
+    <!-- Urban Sketching -->
+    <div class="flip-card" data-category="diy">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p><strong>Timeline:</strong> Feb → May 2024</p>
+          <p><strong>Action:</strong> 20s timelapse sketch Shorts.</p>
+          <p><strong>Results:</strong> +1.3K views; +25 community members</p>
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Before:</strong> 4K subs; avg 300 views/video</p>
+          <p><strong>Proof:</strong> Channel Dashboard, Community Insights</p>
+        </div>
+      </div>
+    </div>
+    <!-- Motivation TikTok Creator -->
+    <div class="flip-card" data-category="growth">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p><strong>Timeline:</strong> Late 2022 → Mar 2023</p>
+          <p><strong>Action:</strong> 2 under-60s motivational posts daily.</p>
+          <p><strong>Results:</strong> 5K followers in 4 months; growth matches cadence</p>
+        </div>
+        <div class="flip-card-back">
+          <p><strong>Before:</strong> Essentially zero presence</p>
+          <p><strong>Proof:</strong> LinkedIn, Reddit, Monetag, Influencers.club</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <script>
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.case-grid .flip-card').forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+  <section id="vrp" class="vrp banner">
+    <h2>Viewer Rewards Program (VRP)</h2>
+    <div class="vrp-grid">
+      <div class="vrp-card">
+        <h3>For Creators</h3>
+        <ul>
+          <li>Earn points for views and shares</li>
+          <li>Unlock rewards and perks</li>
+          <li>Amplify reach with no extra work</li>
+          <li>Seamless tech and tracking handled for you</li>
+        </ul>
+      </div>
+      <div class="vrp-card">
+        <h3>For Brands</h3>
+        <ul>
+          <li>Lower the cost of ads</li>
+          <li>Incentivize engagement and sharing</li>
+          <li>Drive conversions with exclusive offers</li>
+          <li>Organic growth without ad spend</li>
+          <li>Full-service implementation and reporting</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="about">
+    <h2>🧠 About</h2>
+    <p><strong>⎯ In the NIL era, I learned one truth: attention is a currency. If you know how to compound it, the results follow. I've been compounding ever since.</strong></p>
+    
+    <!-- Track headshot image -->
+    <img src="images/hero_headshot.jpg.jpg" alt="Track athlete headshot" style="width:220px; float:right; margin:0 0 1rem 1rem;" />
+    <p>I studied <strong>Civil Engineering and Cyber Engineering</strong> at <strong>Louisiana Tech University</strong>, where systems thinking and precision design shaped my approach to complex problems. I later transferred to <strong>Bryant University</strong>, a <strong>Top 10 business school in the Northeast</strong>, to focus on platform scalability, brand strategy, and performance analytics.</p>
+    <p>Before launching this venture, I worked at a <strong>consulting firm</strong> focused on national market growth, and in <strong>commercial engineering</strong>, where I led competitive project bids across dynamic, fast-moving builds.</p>
+
+    <h2>Mission</h2>
+    <p><strong>S(c)ale Suite</strong> helps creators unlock revenue trapped in long-form content by turning it into short-form engines with our <strong>Viewer Rewards Program (VRP)</strong> layered in to drive views, superfans, and passive income.</p>
+    <ul>
+      <li>✔︎ Automated</li>
+      <li>▸ Data-backed</li>
+      <li>▸ Creator-controlled</li>
+    </ul>
+
+    
+    <!-- Turner group photo -->
+    <img src="images/team_photo.jpg.jpg" alt="Turner Construction team" style="max-width:600px;width:100%;margin:1rem auto;display:block;" />
+
+    <h2>Connect</h2>
+    <h3>Let’s Connect</h3>
+    <ul>
+      <li>Email: <a href="mailto:scalewithblaise@gmail.com">scalewithblaise@gmail.com</a></li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a></li>
+      <li>Schedule: <a href="https://calendly.com/mellis1838" target="_blank">calendly.com/mellis1838</a></li>
+    </ul>
+  </section>
+
+  <section class="banner">
+    <p>Hours of footage, golden moments, expert takes, and viral hooks are already on your hard drive; they’re just not working for you.</p>
+    <p>We turn that raw content into viral clips, passive income, and nonstop growth without you lifting a finger.</p>
+    <p>That means:</p>
+    <ul style="list-style:disc;margin:1rem auto 2rem;padding-left:1.25rem;max-width:700px;text-align:left;">
+      <li>Your best moments, multiplied across platforms where you already have fan bases;</li>
+      <li>Viewer-powered promotion that grows your brand while you sleep;</li>
+      <li>Real revenue from the content you’ve already created.</li>
+    </ul>
+    <p>This isn’t about posting more. It’s about unlocking what’s already yours.</p>
+    <p>Let us do the heavy lifting.</p>
+  </section>
+
+  <section class="cta">
+    <h2>Will You Be Next?</h2>
+    <p>Join the ranks of top creators who’ve transformed their content strategy. Ready to see what S(c)ale Suite can do for you?</p>
+    <button id="schedule-btn" onclick="window.open('https://calendly.com/mellis1838','_blank')" class="cta-button">Schedule a Call</button>
+  </section>
+
+  <footer>
+    <p>Contact: <a href="mailto:scalewithblaise@gmail.com">scalewithblaise@gmail.com</a> | <a href="https://www.linkedin.com">LinkedIn</a></p>
+    <p>© 2025 S(c)ale Suite</p>
+  </footer>
+
+    <section id="contact" class="features">
+    <h2>Contact</h2>
+    <p>Ready to chat? Book your <strong>free call</strong> below.</p>
+    <div class="contact-options">
+      <button onclick="window.open('https://calendly.com/mellis1838', '_blank')">Schedule a Free Call</button>
+    </div>
+  </section>
+
+  <script>
+    // Typing effect
+    const text = "Blazingly fast. Delightfully simple. Turn your audience into superfans and unlock new revenue with zero extra work.";
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById('subhead').innerHTML += text.charAt(i);
+        i++; setTimeout(typeWriter, 25);
+      }
+    }
+    typeWriter();
+    // Scroll reveals
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray('section').forEach(sec => {
+      gsap.from(sec, {opacity:0, y:50, duration:0.8, ease:'power2.out', scrollTrigger:{trigger:sec,start:'top 80%'}});
+    });
+  </script>
+</body>
+</html>
+
